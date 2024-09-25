@@ -8,13 +8,13 @@ import pickle
 data = pd.read_csv('data\\train-00000-of-00001.csv')
 
 # Separing characteristics and labels
-tweet = data['text'] # Text of Tweets
-emotion = data['label'] # Emotion of Tweets
+tweet = data['text'] # Text of tweets
+emotion = data['label'] # Emotion of tweets
 
 # Divide datas for training and tests
 tweet_train, tweet_test, emotion_train, emotion_test = train_test_split(tweet, emotion, test_size=0.2, random_state=42)
 
-# Vectorizing Tweets
+# Vectorizing tweets
 vectorizer = TfidfVectorizer(max_features=5000)
 tweet_train_vec = vectorizer.fit_transform(tweet_train).toarray()
 tweet_test_vec = vectorizer.transform(tweet_test).toarray()

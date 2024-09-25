@@ -1,0 +1,28 @@
+{
+    "manifest_version": 2,
+    "name": "xemotions",
+    "version": "1.0",
+    "description": "Analyse les sentiments des tweets et ajoute un label à côté.",
+    "permissions": [
+      "tabs",
+      "http://localhost/*",
+      "https://twitter.com/*",
+      "https://x.com/*"
+    ],
+    "content_scripts": [
+      {
+        "matches": [
+            "https://twitter.com/*", 
+            "https://x.com/*"
+        ],
+        "js": ["content.js"]
+      }
+    ],
+    "background": {
+      "scripts": ["background.js"],
+      "persistent": false
+    },
+    "browser_action": {
+      "default_popup": "popup.html"
+    }
+  }
